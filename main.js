@@ -84,7 +84,6 @@ items.forEach(function (item) {
     GBParray.push([item.title, item.price]);
   }
 });
-console.log(GBParray);
 
 GBParray.forEach(function (item) {
   document.getElementById("answer3").innerHTML = item[0] + " costs &pound;" + item[1] + "<br />";
@@ -98,10 +97,48 @@ GBParray.forEach(function (item) {
 //Loop through items and immediately concatinate to answer4 field
 items.forEach(function (item) {
   if (item.materials.indexOf('wood') !== -1) {
-    document.getElementById("answer4").innerHTML += item.title + " is made of wood. <br />";
+    document.getElementById("answer4").innerHTML += item.title + " is made of wood. <p>";
   };
 });
 
 //**************************************************************//
-// Question 5: Display a list of all items who are made of wood.
+// Question 5: Which items are made of eight or more materials?
+// Display the name, number of items and the items it is made of.
 //**************************************************************//
+
+//*************** Method 1 using filter/forEach ***************//
+
+// Filter and keep items with 8 or more materials.
+var eightItems = items.filter(function (item) {
+  return item.materials.length >= 8;
+});
+
+// Loop through the eightItems array and log out needed data.
+eightItems.forEach(function (item) {
+  document.getElementById("answer5").innerHTML += ("<p>" + item.title + " has "  + item.materials.length + " materials: <br />");
+  item.materials.forEach(function (material) {
+    document.getElementById("answer5").innerHTML += ((material) + "<br />");
+  });
+});
+
+//*************** Method 2 using forEach/forEach ***************//
+
+// // Empty array to hold the items that meet requirements.
+// var eightItems = [];
+//
+// // Loop through the items array and store any item with 8+ materials in eightItems.
+// items.forEach(function (item) {
+//   if (item.materials.length >= 8) {
+//     eightItems.push(item)
+//   };
+// });
+//
+// // Loop through the eightItems array and log out pertinent data.
+// eightItems.forEach(function (item) {
+//   document.getElementById("answer5").innerHTML += ("<p>" + item.title + " has "  + item.materials.length + " materials: <br />");
+//   // console.log(item.title + ' has ' + item.materials.length + ' materials:');
+//   item.materials.forEach(function (material) {
+//     document.getElementById("answer5").innerHTML += ((material) + "<br />");
+//     // console.log(material);
+//   });
+// });
