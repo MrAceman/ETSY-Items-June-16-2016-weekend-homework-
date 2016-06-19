@@ -142,3 +142,21 @@ eightItems.forEach(function (item) {
 //     // console.log(material);
 //   });
 // });
+
+//**************************************************************//
+// Question 6: How many items were made by their sellers?
+//**************************************************************//
+
+// Empty counter to hold count of items with "i_did"
+// value in the "who_made" field
+
+var counter = null;
+
+// Loop through items array and add 1 to counter for items meeting conditions
+items.forEach(function (item) {
+  if (item.who_made === "i_did") {
+    counter ++;
+  }
+});
+
+document.getElementById("answer6").innerHTML = counter + " were made by their sellers";
