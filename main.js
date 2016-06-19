@@ -45,9 +45,9 @@ var finalArray = [];
 // var finalArray = items.filter(function (item) {
 //   return (item.price > 14 && item.price < 18);
 // });
-
-//Use map to pull only the prices from the filtered items.
-
+//
+// Use map to pull only the prices from the filtered items.
+//
 // var titles = finalArray.map(function (item) {
 //   return item.title;
 // });
@@ -60,11 +60,16 @@ var finalArray = [];
 items.forEach(function (item) {
   if (item.price > 14 && item.price < 18) {
     finalArray.push(item.title);
-    finalArray.push("<br />");
   };
 });
 
-document.getElementById("answer2").innerHTML = "Items that cost between $14.00 USD and $18.00 USD:<p>" + finalArray;
+// Sets initial text of answer
+document.getElementById("answer2").innerHTML = "Items that cost between $14.00 USD and $18.00 USD:<p>"
+
+// Loops through finalArray to write out each item's title
+finalArray.forEach(function (title) {
+  document.getElementById("answer2").innerHTML += title + "<br />";
+});
 
 //***************************************************//
 // Question 3: Which item has a "GBP" currency code?
@@ -78,7 +83,10 @@ items.forEach(function (item) {
   if (item.currency_code === "GBP") {
     GBParray.push(item.title) && GBParray.push(item.price);
   }
-})
-console.log(GBParray);
+});
 
 document.getElementById("answer3").innerHTML = GBParray[0] + " costs &pound;" + GBParray[1];
+
+//**************************************************************//
+// Question 4: Display a list of all items who are made of wood.
+//**************************************************************//
