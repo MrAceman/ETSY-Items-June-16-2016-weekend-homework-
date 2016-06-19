@@ -56,7 +56,7 @@ var finalArray = [];
 //Method 2 using forEach
 //*****************************
 
-// Loop through the array and selectively add the title to the price catcher array.
+// Loop through the array and selectively add the title to the finalArray.
 items.forEach(function (item) {
   if (item.price > 14 && item.price < 18) {
     finalArray.push(item.title);
@@ -70,3 +70,15 @@ document.getElementById("answer2").innerHTML = "Items that cost between $14.00 U
 // Question 3: Which item has a "GBP" currency code?
 // Display it's name and price.
 //***************************************************//
+
+//Empty array to hold items with GBP currency code
+var GBParray = [];
+
+items.forEach(function (item) {
+  if (item.currency_code === "GBP") {
+    GBParray.push(item.title) && GBParray.push(item.price);
+  }
+})
+console.log(GBParray);
+
+document.getElementById("answer3").innerHTML = GBParray[0] + " costs &pound;" + GBParray[1];
