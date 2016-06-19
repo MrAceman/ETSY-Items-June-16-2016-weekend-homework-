@@ -81,12 +81,27 @@ var GBParray = [];
 
 items.forEach(function (item) {
   if (item.currency_code === "GBP") {
-    GBParray.push(item.title) && GBParray.push(item.price);
+    GBParray.push([item.title, item.price]);
   }
 });
+console.log(GBParray);
 
-document.getElementById("answer3").innerHTML = GBParray[0] + " costs &pound;" + GBParray[1];
+GBParray.forEach(function (item) {
+  document.getElementById("answer3").innerHTML = item[0] + " costs &pound;" + item[1] + "<br />";
+});
+
 
 //**************************************************************//
 // Question 4: Display a list of all items who are made of wood.
+//**************************************************************//
+
+//Loop through items and immediately concatinate to answer4 field
+items.forEach(function (item) {
+  if (item.materials.indexOf('wood') !== -1) {
+    document.getElementById("answer4").innerHTML += item.title + " is made of wood. <br />";
+  };
+});
+
+//**************************************************************//
+// Question 5: Display a list of all items who are made of wood.
 //**************************************************************//
