@@ -162,6 +162,14 @@ eightItems.forEach(function (item) {
 //   });
 // });
 
+// ********* Homework review with Brit - 06/20/2016 **********/
+//
+// ********* Possible way to generate filtered array with map
+//
+// var features = manyMaterials.map(function (item) {
+//   return [items.title, item.materials.length, item.materials];
+// })
+
 //**************************************************************//
 // Question 6: How many items were made by their sellers?
 //**************************************************************//
