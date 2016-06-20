@@ -76,19 +76,40 @@ finalArray.forEach(function (title) {
 // Display it's name and price.
 //***************************************************//
 
+//***********************************
+// Method 1 using forEach to get item
+// and forEach to print
+//***********************************
+
 //Empty array to hold items with GBP currency code
-var GBParray = [];
+// var GBParray = [];
+//
+// items.forEach(function (item) {
+//   if (item.currency_code === "GBP") {
+//     GBParray.push([item.title, item.price]);
+//   }
+// });
+//
+// GBParray.forEach(function (item) {
+//   document.getElementById("answer3").innerHTML = item[0] + " costs &pound;" + item[1] + "<br />";
+// });
 
-items.forEach(function (item) {
-  if (item.currency_code === "GBP") {
-    GBParray.push([item.title, item.price]);
+//***********************************
+// Method 2 using filter to get item
+// and map to create print array
+//***********************************
+
+var poundsArray = items.filter(function (item){
+  if (item.currency_code === "GBP")  {
+    return item;
   }
+})
+
+var poundItem = poundsArray.map(function (item) {
+    return (item.title + " costs &pound;" + item.price + "<br />");
 });
 
-GBParray.forEach(function (item) {
-  document.getElementById("answer3").innerHTML = item[0] + " costs &pound;" + item[1] + "<br />";
-});
-
+document.getElementById("answer3").innerHTML = poundItem;
 
 //**************************************************************//
 // Question 4: Display a list of all items who are made of wood.
