@@ -100,9 +100,7 @@ finalArray.forEach(function (title) {
 //***********************************
 
 var poundsArray = items.filter(function (item){
-  if (item.currency_code === "GBP")  {
-    return item;
-  }
+  return item.currency_code === "GBP";
 })
 
 var poundItem = poundsArray.map(function (item) {
